@@ -1,6 +1,13 @@
 {
   "name": "flagel-app",
-  "private": false,
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "private": false,  
+  "scripts": {
+    "start": "node .",
+    "test": "mocha -w ./tests/**/*.spec.js"
+  },
   "dependencies": {
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
