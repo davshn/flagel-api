@@ -26,7 +26,7 @@ app.use(cookieParser());
 //server.use('/', routes);
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to proomo application." });
 });
 
 // Error catching endware.
