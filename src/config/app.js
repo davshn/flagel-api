@@ -8,7 +8,7 @@ const { SubscriptionManager } = require('graphql-subscriptions');
 const { SubscriptionServer } = require('subscriptions-transport-ws');
 
 //const routes = require('./routes/index.js');
-require('./db.js');
+require('./db');
 //const pubsub = require('./pubsub');
 //const typeDefs = require('./schema');
 //const resolvers = require('./resolvers');

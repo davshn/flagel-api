@@ -15,10 +15,10 @@ dialectOptions: {
 
 const basename = path.basename(__filename);
 const modelDefiners = [];
-fs.readdirSync(path.join(__dirname, '/models'))
+fs.readdirSync(path.join(__dirname, '../app/models'))
   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
   .forEach((file) => {
-    modelDefiners.push(require(path.join(__dirname, '/models', file)));
+    modelDefiners.push(require(path.join(__dirname, '../app/models', file)));
   });
 modelDefiners.forEach(model => model(sequelize));
 let entries = Object.entries(sequelize.models);
