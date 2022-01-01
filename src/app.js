@@ -8,7 +8,7 @@ const { SubscriptionManager } = require('graphql-subscriptions');
 const { SubscriptionServer } = require('subscriptions-transport-ws');
 
 //const routes = require('./routes/index.js');
-//require('./db.js');
+require('./db.js');
 //const pubsub = require('./pubsub');
 //const typeDefs = require('./schema');
 //const resolvers = require('./resolvers');
@@ -26,7 +26,7 @@ app.use(cookieParser());
 //server.use('/', routes);
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to proomo application." });
+  res.json({ message: "Welcome to flagel app application." });
 });
 
 // Error catching endware.
