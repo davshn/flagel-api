@@ -3,14 +3,11 @@ const Sequelize = require("sequelize");
 const models =require('../app/models/index')
 //Conexiones con la base de datos
 const sequelize = new Sequelize("postgres://knoffpsafwhayk:4effb64a37d03873b553b03a892d3f728ad78d394df9c5bc3ed95a74ede4f65a@ec2-52-203-27-62.compute-1.amazonaws.com:5432/d6e5jbcsg71uro", {
-dialectOptions: {
+  dialectOptions: {
     ssl: {
       require: true,
       rejectUnauthorized: false
-    }
-  }
-}
-);
+    }}});
 
 //Agrega los modelos a la base de datos, si estan en minuscula los pasa a mayusculas
 models.forEach(model => model(sequelize));
