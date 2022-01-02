@@ -2,11 +2,16 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const schemas = require('../app/graph/schemas/threadSchema.js');
+const root = require('../app/graph/resolvers/threadResolver.js');
+
 //const favicon = require("serve-favicon");
+var { graphqlHTTP } = require('express-graphql');
+/*
 const { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
 const { SubscriptionManager } = require('graphql-subscriptions');
 const { SubscriptionServer } = require('subscriptions-transport-ws');
-
+*/
 //const routes = require('./routes/index.js');
 require('./db');
 //const pubsub = require('./pubsub');
@@ -23,18 +28,10 @@ app.use(express.json({ limit: '50mb' }));
 //app.use(favicon(__dirname + '/public/favicon.png'));
 app.use(cookieParser());
 
-//server.use('/', routes);
-
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to flagel app application." });
-});
-
-// Error catching endware.
-app.use((err, req, res, next) => { 
-  const status = err.status || 500;
-  const message = err.message || err;
-  console.error(err);
-  res.status(status).send(message);
-});
+app.use('/graphql', graphqlHTTP({
+  schema: schemas,
+  rootValue: root,
+  graphiql: true,
+}));
 
 module.exports = app;
