@@ -7,7 +7,17 @@ const resolver = {
             return dBInfo;
         }
         catch(e){   
-            console.log("No hay info");
+            console.log("No hay informacion");
+        }
+    
+    },
+    thread: async ({id}) => {
+        try{
+            const dBthread= await Thread.findByPk(id)
+            return dBthread;
+        }
+        catch(e){   
+            console.log("Ningun tema corresponde a ese id");
         }
     
     },
@@ -20,7 +30,7 @@ const resolver = {
             return newThread;
         }
         catch(e){   
-            console.log("No fue agregado el tema a la abse de datos");
+            console.log("No fue agregado el tema a la base de datos");
         }
     
     },

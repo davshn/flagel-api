@@ -6,7 +6,7 @@ module.exports = buildSchema(`
         title: String!,
     }
     type Query {
-        allThreads: [Thread!]
+        allThreads: [Thread]
         thread(id: Int): Thread
     }
     type Mutation {

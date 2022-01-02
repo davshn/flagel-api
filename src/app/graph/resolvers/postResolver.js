@@ -1,7 +1,20 @@
 const { Post } = require('../../../config/db');
 
 const resolver = {
-
+    postsThread: async ({threadId}) => {
+        try{
+            const dBInfo = await Post.findAll({
+                where: {
+                    threadId: threadId
+                }
+            })
+            return dBInfo;
+        }
+        catch(e){   
+            console.log("No se encontraron respuestas");
+        }
+    
+    },
     createPost: async ({body,threadId}) => {
         try{
             const newPost = await Post.create({

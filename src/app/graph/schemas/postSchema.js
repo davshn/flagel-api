@@ -7,10 +7,10 @@ module.exports = buildSchema(`
         threadId:Int!
     }
     type Query {
-        post(id: Int): Post
+        postsThread(threadId: Int): [Post]
     }
     type Mutation {
-        createPost(body: String!,idThread:Int!):Post,
+        createPost(body: String!,threadId:Int!):Post,
         deletePost(id: Int):Post,
     }
 
