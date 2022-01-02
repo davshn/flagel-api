@@ -3,6 +3,7 @@ const Sequelize = require("sequelize");
 const fs = require('fs');
 const path = require('path');
 
+//Conexiones con la base de datos
 const sequelize = new Sequelize("postgres://knoffpsafwhayk:4effb64a37d03873b553b03a892d3f728ad78d394df9c5bc3ed95a74ede4f65a@ec2-52-203-27-62.compute-1.amazonaws.com:5432/d6e5jbcsg71uro", {
 dialectOptions: {
     ssl: {
@@ -13,6 +14,7 @@ dialectOptions: {
 }
 );
 
+//Importa todos los archivos de modelos
 const basename = path.basename(__filename);
 const modelDefiners = [];
 fs.readdirSync(path.join(__dirname, '../app/models'))
@@ -29,7 +31,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Thread,Post } = sequelize.models;
 
-// Aca vendrian las relaciones
+// Relaciones entre tablas
 Thread.hasMany(Post);
 Post.belongsTo(Thread);
 

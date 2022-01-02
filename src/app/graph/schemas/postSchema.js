@@ -1,6 +1,6 @@
 const { buildSchema } = require('graphql');
 
-const schema = buildSchema(`
+module.exports = buildSchema(`
     type Post {
         id: Int!,
         body: String!,
@@ -15,5 +15,3 @@ const schema = buildSchema(`
     }
 
 `);
-
-module.exports = schema;

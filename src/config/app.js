@@ -2,20 +2,22 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-const schemas = require('../app/graph/schemas/threadSchema.js');
-const resolvers = require('../app/graph/resolvers/threadResolver.js');
+const { buildSchema, print } = require('graphql');
+const { graphqlHTTP } = require('express-graphql');
+const typeDefs = require('../app/graph/schemas/index');
+const resolvers = require('../app/graph/resolvers/index');
+require('./db');
 
 //const favicon = require("serve-favicon");
-const { graphqlHTTP } = require('express-graphql');
+const schemas = buildSchema(print(typeDefs));   //Crea los esquemas a partir de las definiciones de tipo
 /*
 const { SubscriptionManager } = require('graphql-subscriptions');
 const { SubscriptionServer } = require('subscriptions-transport-ws');
 */
-require('./db');
 //const pubsub = require('./pubsub');
 
-const app = express();
-app.name = 'APIGRAPH';
+const app = express();    //Crea el servidor
+app.name = 'API Fagela';
 
 app.use(cors());
 app.use(morgan('common'));

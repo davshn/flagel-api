@@ -1,6 +1,6 @@
 const { buildSchema } = require('graphql');
 
-const schema = buildSchema(`
+module.exports = buildSchema(`
     type Thread {
         id: Int!,
         title: String!,
@@ -15,5 +15,3 @@ const schema = buildSchema(`
     }
 
 `);
-
-module.exports = schema;
