@@ -1,6 +1,6 @@
-const { Thread,Post } = require('../../../config/db');
+const { Thread } = require('../../../config/db');
 
-var resolver = {
+const resolver = {
     allThreads: async () => {
         try{
             const dBInfo= await Thread.findAll()

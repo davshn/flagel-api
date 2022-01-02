@@ -1,6 +1,6 @@
-var { buildSchema } = require('graphql');
+const { buildSchema } = require('graphql');
 
-var schemas = buildSchema(`
+const schemas = buildSchema(`
     type Thread {
         id: Int!,
         title: String!,
