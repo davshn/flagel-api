@@ -9,7 +9,6 @@
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "dependencies": {
-    "apollo-server-express": "^3.6.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
